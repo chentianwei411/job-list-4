@@ -15,3 +15,13 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ footer {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     background-color: #aa9595;
+     color: white;
+     text-align: center;
+     margin-top: 150;
+ }

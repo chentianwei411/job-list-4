@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "建立默认种子用户"
+  User.create(email:"1@1.com",password:"123456",password_confirmation:"123456")
+puts "建立默认jobs"
+for i in 1..10 do
+  Job.create(title:"No#{i}",description:"这是关于No#{i}的介绍")
+end

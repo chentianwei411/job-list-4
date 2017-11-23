@@ -4,7 +4,7 @@ class Admin::JobsController < ApplicationController
 
 
   def index
-    @job = Job.all
+    @jobs = Job.all
   end
 
   def show
@@ -19,7 +19,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
-      redirect_to jobs_path notice:"新增职缺成功"
+      redirect_to admin_jobs_path notice:"新增职缺成功"
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     if @job.update(job_params)
-      redirect_to jobs_path notice:"更新成功"
+      redirect_to admin_jobs_path
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class Admin::JobsController < ApplicationController
 
     @job.delete
 
-    redirect_to jobs_path warning:"删除成功"
+    redirect_to admin_jobs_path warning:"删除成功"
 
   end
 

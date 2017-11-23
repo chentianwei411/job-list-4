@@ -1,4 +1,4 @@
-<%= simple_form_for @job do |f| %>
+<%= simple_form_for [:admin,@job] do |f| %>
   <%= f.input :title,label:"your novel name"%>
   <%= f.input :description,placeholder:"tell more details"%>
   <%= f.button :submit, class:"btn btn-primary"%>

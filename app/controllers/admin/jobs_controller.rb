@@ -44,11 +44,21 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
 
     @job.delete
-
-    redirect_to admin_jobs_path warning:"删除成功"
-
+    flash[:warning] = "删除成功"
+    redirect_to admin_jobs_path
   end
 
+  def publish
+    @job = Job.find(params[:id])
+    @job.publish!
+    redirect_to admin_jobs_path
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+    @job.hide!
+    redirect_to :back
+  end
 
   private
 

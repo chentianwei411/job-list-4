@@ -1,9 +1,9 @@
 module JobsHelper
   def render_job_status(job)
      if job.is_hidden
-       "已经隐藏"
+       content_tag(:span, "未发布", class:"fa fa-lock")
      else
-       "已经发布"
-     end 
+       content_tag(:span, "已发布", class:"fa fa-globe")
+     end
   end
 end

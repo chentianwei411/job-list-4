@@ -1,5 +1,8 @@
 <div class="col-md-12">
   <h1>The job</h1>
+  <div class="text-right">
+    <%= link_to("投递简历", new_job_resume_path(@job), style:"font-size: 30px; text-decoration:underline;")%>
+  </div>
   <hr>
   <%= @job.title %>
   <%= @job.description %>

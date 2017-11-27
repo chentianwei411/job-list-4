@@ -1,6 +1,23 @@
+# == Schema Information
+#
+# Table name: jobs
+#
+#  id               :integer          not null, primary key
+#  title            :string
+#  description      :text
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  wage_upper_bound :integer
+#  wage_lower_bound :integer
+#  contact_email    :string
+#  is_hidden        :boolean          default(TRUE)
+#
+
 class Job < ApplicationRecord
   validates :title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email,presence:true
   validates :wage_lower_bound,:wage_upper_bound, numericality: {greater_than: 0}
+
+  has_many :resumes
 
   def publish!
     self.is_hidden = false

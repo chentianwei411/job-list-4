@@ -7,8 +7,13 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Job</th>
-        <th>description</th>
+        <th>工作名称</th>
+        <th>描述</th>
+        <th>投递简历数量</th>
+        <th>薪资下限</th>
+        <th>薪资上限</th>
+        <th>管理选项</th>
+        <th>刊登时间</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +24,9 @@
             <%= link_to(job.title,admin_job_path(job))%>
           </td>
           <td><%= simple_format(job.description) %></td>
+          <td><%= link_to(job.resumes.count, admin_job_resumes_path(job))%></td>
+          <td><%= job.wage_upper_bound %></td>
+          <td><%= job.wage_lower_bound %></td>
           <td>
             <%= link_to("Edit", edit_admin_job_path(job))%>|
             <%= link_to("Destroy", admin_job_path(job),method: :delete, data:{confirm:"Are you sure?"})%>|
@@ -29,6 +37,7 @@
               <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-default") %>
             <% end %>
           </td>
+          <td><%= job.created_at %></td>
         </tr>
       <% end %>
     </tbody>
